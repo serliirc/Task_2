@@ -13,12 +13,12 @@ public class Mahasiswa {
     private String NIM;
     private String Nama;
     private String status;
-    private char [] nilai;
-    private int q;
+    private char[] nilai;
+    private int i;
     
     public Mahasiswa(){
         this.status = "Tidak LULUS";
-        this.q = 0;
+        this.i = 0;
         this.nilai = new char [10];
     }
     
@@ -26,7 +26,7 @@ public class Mahasiswa {
         this.NIM = NIM;
         this.Nama = Nama;
         this.status = "Tidak LULUS";
-        this.q = 0;
+        this.i = 0;
         this.nilai = new char [10];
     }
     
@@ -54,44 +54,43 @@ public class Mahasiswa {
         this.status = status;
     }
 
-    public char[] getNilai(int q) {
-        char n = this.nilai[q];
-        return nilai;
+    public char getNilai(int i) {
+        return nilai[i];
     }
-
+    
     public void setNilai(char[] nilai) {
         this.nilai = nilai;
     }
 
-    public int getQ(){
-        return q;
+    public int getI(){
+        return i;
     }
 
-    public void setQ(int q) {
-        this.q = q;
+    public void setI(int i) {
+        this.i = i;
     }
    
     public void addNilai (char nilai){
-        if (q < 10){
-            this.nilai[q] = nilai;
-            q++;
+        if (i < 10){
+            this.nilai[i] = nilai;
+            i++;
         }
     }
     
     public String toString (){
         String mhs = NIM + "," + Nama + "," + status + "=";
-        for (int r = 0; r < q; r++){
-            mhs = mhs + nilai [r] + ",";
+        for (int p = 0; p < i; p++){
+            mhs = mhs + nilai [p] + ",";
         }
         return mhs;
     }
 
     public char cekNilai (Mahasiswa mh){
-        char p = 0;
-        for (char x = 'A' ; x < 'E' ; x++){
-            for (int y = 0; y < q; y++){
+        char x = 0;
+        for (char q = 'A' ; x < 'E' ; x++){
+            for (int y = 0; y < i; y++){
                 if (nilai [y] == x){
-                    for (int z = 0; z < mh.q; z++){
+                    for (int z = 0; z < mh.i; z++){
                         if (mh.nilai[z] == x){
                             return x;
                         }
@@ -99,7 +98,7 @@ public class Mahasiswa {
                 }
             }
         }
-        return p;
+        return x;
         
     }
 }
